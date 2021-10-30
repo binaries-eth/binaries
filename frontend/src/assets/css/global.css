@@ -1,0 +1,97 @@
+@font-face {
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: local("IBM Plex Mono"), local("IBMPlexMono"), url("/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"), url("/fonts/IBMPlexMono-Regular-Latin1.woff") format("woff");
+	unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02
+}
+
+@font-face {
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 500;
+	src: local("IBM Plex Mono"), local("IBMPlexMono"), url("/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"), url("/fonts/IBMPlexMono-Medium-Latin1.woff") format("woff");
+	unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02
+}
+
+html,
+body {
+  font-family: "IBM Plex Mono", monospace;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(52, 89%, 63%);
+}
+
+#app {
+  /* font-family: Helvetica, Arial, sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-input {
+  /* background-color: hsl(52, 84%, 57%); */
+  /* background-color: hsl(204, 2%, 68%); */
+  background-color: #efefef;
+  border-radius: 8px;
+  padding: 14px 16px;
+  /* box-shadow:
+    1px 2px 2px hsl(52, 66%, 43%) inset; */
+  box-shadow:
+    1px 1px 2px hsl(204, 2%, 46%) inset;
+}
+
+.text-input label {
+  display: block;
+  padding-bottom: 4px;
+  font-weight: 600;
+  font-size: 0.6em;
+  text-transform: uppercase;
+}
+
+.text-input input[type="text"] {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  background: none;
+  border: none;
+  display: block;
+  width: 100%;
+}
+
+.text-input input[type="text"]:focus {
+  outline: none;
+}
+
+.text-input input[type="number"] {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8em;
+  font-weight: 500;
+  display: inline-block;
+  text-align: right;
+  background: none;
+  border: none;
+  padding: none;
+  margin: none;
+  width: 48px;
+}
+
+.text-input input[type="number"]:focus {
+  outline: none;
+}
+
+.text-input input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+.link, .link:visited, .link:active {
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  word-break: keep-all;
+  user-select: none;
+}
+
+.link:hover {
+  color: lightseagreen;
+}
