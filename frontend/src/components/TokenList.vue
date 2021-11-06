@@ -22,7 +22,7 @@ onUnmounted(() => {})
   <section>
     <div class="box" @click="handleSelect(item)" v-for="(item) in listing" :key="item.tokenId">
       <span class="shadow"></span>
-      <TokenRenderer class="front" scaled :formula="item.formula" :params="item.params" :size="512" />
+      <TokenRenderer class="front" :scaled="true" :formula="item.formula" :params="item.params" :size="512" />
     </div>
   </section>
 </template>

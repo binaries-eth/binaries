@@ -1,3 +1,18 @@
+/*
+
+Binaries – create your own parametric graphics.
+
+Minting is easy, coming up with your own art is hard.
+This project lets you experience the joy pain of discovering
+the perfect composition from open set of possibilities.
+
+Take one of the existing tokens as a starting point,
+experiment with the parameters and design your own piece.
+
+https://binaries-eth.github.io
+
+*/
+
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
@@ -240,6 +255,7 @@ contract Binaries is ERC721Enumerable, ERC721URIStorage {
 
   /**
     * @dev Emergency refunds.
+    *
     */
   function claimRefund()
     public
@@ -372,6 +388,7 @@ contract Binaries is ERC721Enumerable, ERC721URIStorage {
     * Requirements:
     *
     * - `tokenId` must exist.
+    * - `params` cannot be empty.
     */
   function _setParams(uint tokenId, uint8[] memory params) internal virtual {
     if (!_exists(tokenId)) { revert NonExistentToken(); }

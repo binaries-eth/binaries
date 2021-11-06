@@ -1,5 +1,6 @@
 import { task } from "hardhat/config"
 import "@nomiclabs/hardhat-waffle"
+import "@nomiclabs/hardhat-etherscan"
 import "hardhat-gas-reporter"
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -21,7 +22,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 
-const { INFURA_PROJECT_ID, DEPLOYER_PRIVATE_KEY } = process.env
+const { INFURA_PROJECT_ID, DEPLOYER_PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env
 
 const solidity = {
   version: "0.8.7",
@@ -34,6 +35,12 @@ const solidity = {
 }
 
 const networks = {
+  mainnet: {
+    url: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
+    chainId: 1,
+    accounts: [`0x${DEPLOYER_PRIVATE_KEY}`],
+    gasPrice: 83000000000,
+  },
   kovan: {
     url: `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,
     chainId: 42,
@@ -41,4 +48,8 @@ const networks = {
   },
 }
 
-export { solidity, networks }
+const etherscan = {
+  apiKey: `${ETHERSCAN_API_KEY}`
+}
+
+export { solidity, networks, etherscan }

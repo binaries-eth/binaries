@@ -2,7 +2,7 @@
 
 Create your own parametric graphics.
 
-Minting is easy, coming up with your own art is hard. This project lets you experience the pain of discovering the perfect composition from open set of possibilities. Take one of the existing tokens as a starting point, experiment with the parameters and design your own piece.
+Minting is easy, coming up with your own art is hard. This project lets you experience the joy and pain of discovering the perfect composition from open set of possibilities. Take one of the existing tokens as a starting point, experiment with the parameters and design your own piece.
 
 [[@binarieseth](https://twitter.com/binarieseth)] [[github](https://github.com/binaries-eth/binaries)] [discord - soon] [opensea - soon]
 
