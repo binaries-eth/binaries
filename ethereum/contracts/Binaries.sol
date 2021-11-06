@@ -21,7 +21,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-/// @custom:security-contact @binaries_eth
+/// @custom:security-contact github@binaries-eth
 contract Binaries is ERC721Enumerable, ERC721URIStorage {
   using SafeMath for uint256;
   using Strings for uint256;
