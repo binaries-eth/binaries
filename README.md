@@ -18,9 +18,9 @@ Disclaimer: contract is not audited, so its use is extremely risky. Actively loo
 
 ### Ideas what's next?
 
-Project is open for suggestions, for now via GitHub issues. Some ideas:
+Something cool, like
 
-* Adding new features like:
+* Adding new features, eg:
   * colours
   * animations
   * wasm support

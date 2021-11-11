@@ -1,6 +1,40 @@
-import { UPNG } from '../utils/upng.js'
+import { UPNG } from './utils/upng.js'
 import { Interface } from '@ethersproject/abi'
-import fetch from 'node-fetch'
+import https from 'https'
+
+const fetch = (url, params) => {
+  const uri = new URL(url)
+  const { hostname, pathname } = uri
+  let { body, ...options } = params
+
+  options = { ...options,
+    protocol: 'https:',
+    port: 443,
+    hostname,
+    path: pathname,
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': body.length
+    }
+  }
+
+  return new Promise((resolve, reject) => {
+    const req = https.request(options, (res) => {
+      let data = ''
+      res.on('data', (chunk) => {
+          data += chunk;
+      })
+      res.on('end', () => {
+        resolve(JSON.parse(data))
+      })
+    }).on("error", (err) => {
+      reject(err.message)
+    })
+
+    req.write(body)
+    req.end()
+  })
+}
 
 const contractAddress = "0xaBd3606A72469e4Dbda2E0c6a3c0Dff7473aa5c3"
 const contractAbi = [
@@ -14,7 +48,7 @@ const metadata = async (id) => {
     method: "POST",
     body: `{ "id": 1, "jsonrpc": "2.0", "method": "eth_call", "params": [{"to":"${contractAddress}", "data":"${calldata}"}, "latest"] }`
   })
-  let rawMetadata = (await response.json())['result']
+  let rawMetadata = (response)['result']
 
   return contractInterface.decodeFunctionResult('tokenMetadata', rawMetadata)
 }
@@ -26,7 +60,8 @@ const mathMethods = Object.getOwnPropertyNames(Math)
 const extendWithMath = (func) => {
   const mathMatches = func.match(/p[0-9]{1}|[a-zA-Z]+/g).filter((string) => mathMethods.indexOf(string) > -1).filter(uniqueOnly)
   mathMatches.forEach((string) => {
-    func = func.replaceAll(string, `Math.${string}`)
+    let reg = new RegExp(string, 'g')
+    func = func.replace(reg, `Math.${string}`)
   })
 
   return func
@@ -73,4 +108,23 @@ const handleImage = async (id) => {
   return idata
 }
 
-export { handleImage }
+const handler = async (event, context) => {
+  try {
+    const { id } = event.queryStringParameters
+    const png = await handleImage(id)
+    const body = png.toString('base64')
+
+    return {
+      headers: {
+        "Content-Type": "image/png",
+      },
+      statusCode: 200,
+      isBase64Encoded: true,
+      body,
+    }
+  } catch(err) {
+    return Promise.reject(err)
+  }
+}
+
+export { handler }

@@ -4,21 +4,21 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Token Metadata API",
-  "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "build": "netlify-lambda build src",
+    "start": "netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
   "author": "binaries-eth <3f8d263529249296@protonmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "ethers": "^5.5.1",
-    "express": "^4.17.1",
-    "node-fetch": "^3.1.0",
-    "pako": "^2.0.4"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.14"
+    "ethers": "^5.5.1",
+    "nodemon": "^2.0.14",
+    "pako": "^2.0.4",
+    "@netlify/functions": "^0.8.0",
+    "netlify-lambda": "^2.0.15"
+  },
+  "dependencies": {
   }
 }
