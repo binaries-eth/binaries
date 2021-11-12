@@ -15,7 +15,7 @@ async function handleRequest(event) {
   const id = pathname.split('/').pop()
   let response = new Response('', { status: 404 })
 
-  if (pathname.startsWith('/images')) {
+  if (pathname.startsWith('/api/images')) {
     const cacheKey = new Request(url.toString(), request)
     const cache = caches.default
     response = await cache.match(cacheKey)
@@ -33,7 +33,7 @@ async function handleRequest(event) {
     }
   }
 
-  if (pathname.startsWith('/metadata')) {
+  if (pathname.startsWith('/api/metadata')) {
     const payload = {
       "name": `Binaries #${id}`,
       "description": "Minting is easy, coming up with your own art is hard. This project lets you experience the joy and pain of discovering the perfect composition from open set of possibilities. Take one of the existing tokens as a starting point, experiment with the parameters and design your own piece.",

@@ -9,4 +9,4 @@ compatibility_date = "2021-11-12"
 
 [env.production]
 zone_id = "a1363ec6f6f2e6f2776ce84672d44d33"
-route = "binaries.link/*"
+route = "binaries.link/api/*"
