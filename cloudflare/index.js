@@ -12,7 +12,7 @@ async function handleRequest(event) {
   const { request } = event
   const url = new URL(request.url)
   const { pathname } = url
-  const id = pathname.split('/').pop()
+  const id = pathname.split('/').pop().replace('.png','')
   let response = new Response('', { status: 404 })
 
   if (pathname.startsWith('/api/images')) {
@@ -38,7 +38,7 @@ async function handleRequest(event) {
       "name": `Binaries #${id}`,
       "description": "Minting is easy, coming up with your own art is hard. This project lets you experience the joy and pain of discovering the perfect composition from open set of possibilities. Take one of the existing tokens as a starting point, experiment with the parameters and design your own piece.",
       "external_link": "https://binaries.link",
-      "image": `https://binaries.link/images/${id}`
+      "image": `https://binaries.link/api/images/${id}.png`
     }
 
     response = new Response(JSON.stringify(payload), {
