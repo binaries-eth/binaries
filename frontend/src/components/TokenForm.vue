@@ -86,26 +86,28 @@ onUnmounted(() => {
   <div>
     <FormulaInput v-model="formulaValue" />
     <ParameterInput :label="'P' + (index+1)" v-model.number="paramsValues[index]" v-for="(_, index) in paramsValues" />
-    <div class="center">
-      <span v-if="disabled">These params are already minted </span>
-      <span class="link" @click="randomiseParams()">(randomise)</span>
-    </div>
-    <div class="center">
-      Current price <span class="price">{{nextPrice}}Ξ </span>
-      <span class="link" @click="fetchTotalSupply()">(refresh)</span> 
-      <a href="https://github.com/binaries-eth/binaries#tokenomics" class="link">(tokenomics info)</a>
-    </div>
-    <div class="button-container">
-      <MintButton :disabled="disabled || minting" :minting="minting" v-if="connected" @click="handleMint()" />
-      <span v-else-if="!providerError" class="link" @click="connect()">(connect)</span>
-      <a href="https://metamask.io" target="_blank" v-else-if="providerError">(install Metamask 🦊 to mint)</a>
-    </div>
-    <div v-if="currentOwner == account" class="center">
-      <span class="link" @click="burn(current.tokenId)">(burn for {{ current.burnPrice }}Ξ)</span>
-    </div>
-    <div v-if="errorMessage" class="center">
-      <span class="error">{{ errorMessage }}</span>
-      <span class="link" @click="clearError()"> (OK, close)</span>
+    <div class="info-container">
+      <div class="center">
+        <span v-if="disabled">These params are already minted </span>
+        <span class="link" @click="randomiseParams()">(randomise)</span>
+      </div>
+      <div class="center">
+        Current price <span class="price">{{nextPrice}}Ξ </span>
+        <span class="link" @click="fetchTotalSupply()">(refresh)</span> 
+        <a href="https://github.com/binaries-eth/binaries#tokenomics" class="link">(tokenomics info)</a>
+      </div>
+      <div class="button-container">
+        <MintButton :disabled="disabled || minting" :minting="minting" v-if="connected" @click="handleMint()" />
+        <span v-else-if="!providerError" class="link" @click="connect()">(connect)</span>
+        <a href="https://metamask.io" target="_blank" v-else-if="providerError">(install Metamask 🦊 to mint)</a>
+      </div>
+      <div v-if="currentOwner == account" class="center">
+        <span class="link" @click="burn(current.tokenId)">(burn for {{ current.burnPrice }}Ξ)</span>
+      </div>
+      <div v-if="errorMessage" class="center">
+        <span class="error">{{ errorMessage }}</span>
+        <span class="link" @click="clearError()"> (OK, close)</span>
+      </div>
     </div>
   </div>
 </template>
@@ -124,5 +126,11 @@ onUnmounted(() => {
 .button-container {
   display: flex;
   justify-content: center;
+}
+.info-container {
+  padding-top: 24px;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
 }
 </style>

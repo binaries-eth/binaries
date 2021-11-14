@@ -77,8 +77,10 @@ onUnmounted(() => {
 
 <style scoped>
   .renderer {
-    background-color: #111;
-    border-radius: 8px;
+    /* background-color: #111; */
+    background-color: #efefef;
+    border-radius: 6px;
+    padding: 6px;
   }
   .scaled .canvas {
     width: 256px;
@@ -86,8 +88,12 @@ onUnmounted(() => {
   }
 
   .canvas {
+    width: 512px;
+    height: 512px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #111;
+    border-radius: 6px;
   }
 </style>

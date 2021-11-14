@@ -26,17 +26,15 @@ const handleSelect = (item: TokenMetadata): void => {
 
 <template>
   <ContractProvider>
-    <div class="container">
-      <div class="navigation">
-        <span class="logo">BINARIES</span>
-        <ConnectButton @connected="handleConnected" />
-      </div>
-      <div class="grid">
-        <TokenRenderer class="shadow" :formula="f" :params="p" :size="size" />
-        <TokenForm class="editor" v-model:formula-value="f" v-model:params-values="p" :connected="connected" />
-      </div>
-      <TokenList @selected="handleSelect" />
+    <div class="navigation">
+      <span class="logo">BINARIES</span>
+      <ConnectButton @connected="handleConnected" />
     </div>
+    <div class="grid">
+      <TokenRenderer class="shadow" :formula="f" :params="p" :size="size" />
+      <TokenForm class="editor" v-model:formula-value="f" v-model:params-values="p" :connected="connected" />
+    </div>
+    <TokenList @selected="handleSelect" />
   </ContractProvider>
 </template>
 
@@ -45,15 +43,20 @@ const handleSelect = (item: TokenMetadata): void => {
     font-weight: 500;
   }
   .container {
-    padding: 16px 64px 100px;
+    
   }
   .shadow {
     border-radius: 8px;
-    box-shadow:
-      1px 2px 2px hsl(52, 66%, 43%),
+    /* box-shadow:
+      0px 0px 8px hsl(0, 0%, 30%),
+      0px 0px 16px hsl(0, 0%, 20%),
+      0px 0px 32px hsl(0, 0%, 10%),
+      0px 0px 64px hsl(0, 0%, 1%); */
+    /* box-shadow:
+      1px 2px 2px hsl(0, 0%, 94%),
       2px 4px 4px hsl(52, 66%, 43%),
       4px 8px 8px hsl(52, 66%, 43%),
-      8px 16px 16px hsl(52, 66%, 43%);
+      8px 16px 16px hsl(52, 66%, 43%); */
   }
   .navigation {
     display: flex;
@@ -61,6 +64,10 @@ const handleSelect = (item: TokenMetadata): void => {
     align-items: center;
     height: 50px;
     margin-bottom: 50px;
+    padding: 16px 0px;
+    max-width: 1256px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .grid {
     display: flex;
@@ -74,8 +81,8 @@ const handleSelect = (item: TokenMetadata): void => {
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    /* align-self: flex-start; */
-    gap: 24px;
+    /* align-self: flex-start;
+    gap: 24px; */
     flex-grow: 1;
   }
   .logo {

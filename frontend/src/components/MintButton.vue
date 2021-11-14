@@ -37,14 +37,16 @@ const emit = defineEmits<{
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    background: hsl(52, 66%, 33%);
+    background-image: linear-gradient(90deg,  hsl(285, 85%, 37%), hsl(15, 85%, 37%), hsl(285, 85%, 37%));
+    filter: brightness(80%);
+    /* background: hsl(277, 41%, 41%); */
     /* background-color: hsl(308, 100%, 32%); */
     will-change: transform;
     transform: translateY(0px);
     transition:
       transform 600ms cubic-bezier(.3, .7, .4, 1);
-    box-shadow:
-      1px 1px 3px hsl(52, 66%, 33%);
+    /* box-shadow:
+      1px 1px 3px hsl(276, 100%, 60%); */
   }
 
   .edge {

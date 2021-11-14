@@ -10,7 +10,7 @@ const { connected, account, providerError, claimableBalance } = inject(ContractS
   <div>
     <div v-if="providerError">{{ providerError }}</div>
     <div v-else>
-      <button v-if="!connected" @click="connect()" ref="connect_button">CONNECT</button>
+      <span v-if="!connected" class="link" @click="connect()" ref="connect_button">(connect)</span>
       <div v-else>
         <span class="with_space">
           Accrued <span class="amount">{{ claimableBalance }}Ξ </span>

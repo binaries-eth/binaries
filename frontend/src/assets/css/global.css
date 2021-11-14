@@ -19,7 +19,9 @@ body {
   font-family: "IBM Plex Mono", monospace;
   margin: 0;
   padding: 0;
-  background-color: hsl(52, 89%, 63%);
+  /* background-color: hsl(52, 89%, 63%); */
+  background-color: #111;
+  color: #efefef;
 }
 
 #app {
@@ -31,13 +33,18 @@ body {
 .text-input {
   /* background-color: hsl(52, 84%, 57%); */
   /* background-color: hsl(204, 2%, 68%); */
-  background-color: #efefef;
-  border-radius: 8px;
-  padding: 14px 16px;
+  /* background-color: #efefef; */
+  /* border-radius: 8px; */
+  padding: 16px 21px;
+  border: 1px solid #efefef;
+  border-top: none;
   /* box-shadow:
     1px 2px 2px hsl(52, 66%, 43%) inset; */
-  box-shadow:
-    1px 1px 2px hsl(204, 2%, 46%) inset;
+  /* box-shadow:
+    1px 1px 2px hsl(204, 2%, 46%) inset; */
+}
+.text-input:first-of-type {
+  border-top: 1px solid #efefef;
 }
 
 .text-input label {
@@ -55,10 +62,12 @@ body {
   border: none;
   display: block;
   width: 100%;
+  color: #efefef;
 }
 
 .text-input input[type="text"]:focus {
   outline: none;
+  color: #efefef;
 }
 
 .text-input input[type="number"] {
@@ -72,6 +81,7 @@ body {
   padding: none;
   margin: none;
   width: 48px;
+  color: #efefef;
 }
 
 .text-input input[type="number"]:focus {
@@ -84,7 +94,7 @@ body {
 }
 
 .link, .link:visited, .link:active {
-  color: blue;
+  color: lightpink;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;

@@ -26,7 +26,7 @@ const emit = defineEmits<{
 }
 .text-input input[type="number"] {
   position: absolute;
-  top: 10px;
+  top: 14px;
   right: 10px;
   float: right;
 }
