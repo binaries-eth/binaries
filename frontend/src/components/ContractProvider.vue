@@ -237,9 +237,8 @@ export default {
         state.accounts =  metamask.accounts
         state.network = metamask.chainId
         state.signer = metamask.signer
-
-        initInfura()
       }
+      initInfura()
       await fetchTotalSupply()
       await fetchListing()
     })
